@@ -1,0 +1,358 @@
+# ==========================================
+# Gitignore - Sistema de Gerenciamento de Clínica Médica
+# ==========================================
+
+# ==========================================
+# Node.js / npm
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ==========================================
+# Ambiente
+# ==========================================
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+.env.test.local
+
+# ==========================================
+# IDE / Editor
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.history/
+.ionide
+
+# ==========================================
+# Build / Dist
+# ==========================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache
+.cache/
+.vuepress/dist
+.nuxt-dist
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+
+# ==========================================
+# Prisma
+# ==========================================
+prisma/dev.db
+prisma/dev.db-journal
+.prisma/
+
+# ==========================================
+# TypeScript
+# ==========================================
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+dist/
+types/
+
+# ==========================================
+# Coverage / Test
+# ==========================================
+coverage/
+.nyc_output/
+*.lcov
+.mocha_output
+.jest/
+
+# ==========================================
+# Logs
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================================
+# Docker
+# ==========================================
+.dockerignore
+docker-compose.override.yml
+
+# ==========================================
+# Arquivos temporários do sistema
+# ==========================================
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.env.*.swp
+
+# ==========================================
+# Arquivos de backup
+# ==========================================
+*.bak
+*.tmp
+*.temp
+*.swp
+*~
+
+# ==========================================
+# Arquivos do sistema Windows
+# ==========================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ==========================================
+# Arquivos do sistema Linux
+# ==========================================
+.directory
+
+# ==========================================
+# IDEs específicas
+# ==========================================
+# VS Code
+.vscode
+.vscode/*
+!.vscode/extensions.json
+
+# WebStorm
+.idea/
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+*.vim
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ==========================================
+# OS Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==========================================
+# Arquivos de banco de dados
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+*.mdb
+*.accdb
+
+# ==========================================
+# Certificados e chaves
+# ==========================================
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# ==========================================
+# Arquivos gerados pela build
+# ==========================================
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# ==========================================
+# Vite specific
+# ==========================================
+dist/
+.vite/
+
+# ==========================================
+# Express specific
+# ==========================================
+public/uploads/
+
+# ==========================================
+# Arquivos de instalação
+# ==========================================
+*.exe
+*.msi
+*.zip
+*.tar.gz
+
+# ==========================================
+# Arquivos de pairing
+# ==========================================
+.pairs
+.pair_options
+
+# ==========================================
+# Arquivos de runtime
+# ==========================================
+.rb_obj_db
+
+# ==========================================
+# Mac specific
+# ==========================================
+.AppleDouble
+.LSOverride
+._*
+
+# ==========================================
+# Yarn specific
+# ==========================================
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ==========================================
+# npm specific
+# ==========================================
+npm-debug.log*
+
+# ==========================================
+# pnpm specific
+# ==========================================
+pnpm-debug.log*
+
+# ==========================================
+# Rush specific
+# ==========================================
+common/temp/
+.rush/
+
+# ==========================================
+# Arquivos de dependência
+# ==========================================
+.depend
+.deps
+
+# ==========================================
+# Arquivos de projeto específicos
+# ==========================================
+*.stackdump
+core.*
+vgcore.*
+
+# ==========================================
+# Arquivos de tradução
+# ==========================================
+*.po~
+*.pot
+
+# ==========================================
+# Arquivos compilados de Python
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================================
+# Arquivos de lock do Prisma
+# ==========================================
+prisma/.prisma/
+
+# ==========================================
+# Diretórios de upload/media
+# ==========================================
+uploads/
+media/
+public/uploads/
+
+# ==========================================
+# Arquivo de segredo
+# ==========================================
+.secrets
+secrets/
+
+# ==========================================
+# Arquivos de configuração sensíveis
+# ==========================================
+config/production.js
+config/secrets.js
+
+# ==========================================
+# Diretórios de cache
+# ==========================================
+.eslintcache
+.stylelintcache
+
+# ==========================================
+# Arquivos gerados por Prisma
+# ==========================================
+prisma/migrations/
+generated/
+
+# ==========================================
+# Dependências opcionais que podem não ser instaladas
+# ==========================================
+optional-npm-packages/
+
+# ==========================================
+# Arquivos de sincronização
+# ==========================================
+.synctex.gz
+.aux
+
+# ==========================================
+# Projeto específico - ignore files não necessários
+# ==========================================
+.versionrc.json.bak
+CHANGELOG_OLD.md
+
+# ==========================================
+# Arquivos de testes não devem ser ignorados
+# ==========================================
+# !.test/
+# !.spec/
+
+# ==========================================
+# Importante: NÃO ignorar estes arquivos
+# ==========================================
+# Descomente se precisar forçar commit
+# !.gitkeep
+# !.env.example
+# !.env.development.example

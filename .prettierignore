@@ -1,0 +1,9 @@
+node_modules/
+.next
+dist/
+.vuepress/dist
+.cache/
+.nuxt
+build
+coverage
+.open-api-ts

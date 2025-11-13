@@ -1,0 +1,75 @@
+# ==========================================
+# .gitignore Global do Projeto
+# ==========================================
+# Este arquivo ignora padrões comuns de arquivos
+# que não devem ser commitados no Git
+
+# ==========================================
+# Arquivos de Configuração Sensível
+# ==========================================
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+.env.*.bak
+.env.*.swp
+
+# ==========================================
+# IDEs e Editores
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Build e Dist
+# ==========================================
+dist/
+build/
+out/
+.next/
+.cache/
+
+# ==========================================
+# Node Modules
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ==========================================
+# Prisma
+# ==========================================
+prisma/dev.db
+prisma/dev.db-journal
+.prisma/
+
+# ==========================================
+# Banco de Dados Local
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ==========================================
+# Coverage e Testes
+# ==========================================
+coverage/
+.nyc_output/
+
+# ==========================================
+# Logs
+# ==========================================
+logs/
+*.log

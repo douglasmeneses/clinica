@@ -1,0 +1,53 @@
+{
+  "name": "api-clinica",
+  "version": "1.0.0",
+  "description": "API REST para gerenciamento de clínica médica com Node.js, TypeScript, Prisma e PostgreSQL",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio",
+    "seed": "npx tsx src/scripts/seedAll.ts",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "setup": "npm install && npm run prisma:generate && npm run prisma:migrate"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "prisma",
+    "postgresql",
+    "express",
+    "swagger",
+    "zod",
+    "clinica",
+    "api",
+    "rest"
+  ],
+  "author": "Douglas Meneses",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.5.2",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "prisma": "^6.19.0"
+  }
+}

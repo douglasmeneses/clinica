@@ -1,0 +1,33 @@
+services:
+  # Nome do serviço (pode ser qualquer um)
+  db:
+    # Usa a imagem oficial do PostgreSQL
+    image: postgres:15-alpine
+
+    # Nome do container que será criado
+    container_name: banco-postgres-compose
+
+    # Reinicia o container automaticamente em caso de falha
+    restart: always
+
+    # Variáveis de ambiente para configurar o banco
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: clinica
+
+    # Mapeamento de portas: <host>:<container>
+    ports:
+      - "5433:5432"
+
+    # Mapeamento de volumes
+    volumes:
+      # Volume nomeado para persistir os dados do banco
+      - postgres_data:/var/lib/postgresql/data
+
+      # Monta o diretório local `init` dentro do container para executar os scripts
+      - ./init:/docker-entrypoint-initdb.d
+
+# Define os volumes que serão gerenciados pelo Docker
+volumes:
+  postgres_data:

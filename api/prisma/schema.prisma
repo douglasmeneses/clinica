@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Secretario {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  senha     String // IMPORTANTE: Em produção, sempre armazene o hash da senha!
+  telefone  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("secretarios")
+}
+
+model Paciente {
+  id             Int        @id @default(autoincrement())
+  nome           String
+  email          String     @unique
+  cpf            String     @unique
+  telefone       String?
+  dataNascimento DateTime   @db.Date
+  consultas      Consulta[] // Relação: Um paciente pode ter várias consultas
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  @@map("pacientes")
+}
+
+model Medico {
+  id            Int        @id @default(autoincrement())
+  nome          String
+  email         String     @unique
+  crm           String     @unique
+  especialidade String
+  consultas     Consulta[] // Relação: Um médico pode ter várias consultas
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@map("medicos")
+}
+
+model Consulta {
+  id         Int      @id @default(autoincrement())
+  dataHora   DateTime
+  motivo     String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  pacienteId Int
+  medicoId   Int
+
+  // Relações (chaves estrangeiras)
+  paciente Paciente @relation(fields: [pacienteId], references: [id])
+  medico   Medico   @relation(fields: [medicoId], references: [id])
+
+  @@map("consultas") // Nome da tabela no banco de dados
+}
