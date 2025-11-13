@@ -36,7 +36,6 @@ O **Sistema de Gerenciamento de Clínica Médica** é uma aplicação full-stack
 │   │   ├── middlewares/      # Middlewares de validação
 │   │   ├── schemas/          # Schemas Zod de validação
 │   │   ├── database/         # Configuração do Prisma
-│   │   ├── shared/           # Utilitários e constantes
 │   │   └── index.ts          # Ponto de entrada
 │   ├── prisma/
 │   │   ├── schema.prisma     # Modelo de dados
@@ -51,7 +50,6 @@ O **Sistema de Gerenciamento de Clínica Médica** é uma aplicação full-stack
 │   │   ├── services/         # Chamadas à API
 │   │   ├── schemas/          # Schemas de validação
 │   │   ├── types/            # Tipos TypeScript
-│   │   ├── shared/           # Constantes e utilitários
 │   │   ├── App.tsx           # Componente raiz
 │   │   └── main.tsx          # Ponto de entrada
 │   └── package.json
