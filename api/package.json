@@ -11,6 +11,7 @@
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:studio": "npx prisma studio",
     "seed": "npx tsx src/scripts/seedAll.ts",
+    "seed:deploy": "npx prisma migrate deploy && npx tsx src/scripts/seedAll.ts",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "setup": "npm install && npm run prisma:generate && npm run prisma:migrate"
