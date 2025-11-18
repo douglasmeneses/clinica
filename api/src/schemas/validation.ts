@@ -75,11 +75,11 @@ export const createPacienteSchema = z.object({
     .optional(),
   dataNascimento: z
     .string()
-    .refine((date) => {
+    .refine((date: string) => {
       const parsedDate = new Date(date);
       return !isNaN(parsedDate.getTime());
     }, "Data de nascimento deve ser uma data válida")
-    .refine((date) => {
+    .refine((date: string) => {
       const parsedDate = new Date(date);
       const today = new Date();
       return parsedDate < today;
@@ -92,11 +92,11 @@ export const updatePacienteSchema = createPacienteSchema.partial();
 export const createConsultaSchema = z.object({
   dataHora: z
     .string()
-    .refine((date) => {
+    .refine((date: string) => {
       const parsedDate = new Date(date);
       return !isNaN(parsedDate.getTime());
     }, "Data e hora devem ser válidas")
-    .refine((date) => {
+    .refine((date: string) => {
       const parsedDate = new Date(date);
       const now = new Date();
       return parsedDate > now;
@@ -109,10 +109,7 @@ export const createConsultaSchema = z.object({
     .number()
     .int("ID do médico deve ser um número inteiro")
     .positive("ID do médico deve ser positivo"),
-  motivo: z
-    .string()
-    .max(500, "Motivo deve ter no máximo 500 caracteres")
-    .optional(),
+  motivo: z.string().max(500, "Motivo deve ter no máximo 500 caracteres").optional(),
 });
 
 export const updateConsultaSchema = createConsultaSchema.partial();
@@ -123,7 +120,7 @@ export const idParamSchema = z.object({
     .string()
     .regex(/^\d+$/, "ID deve ser um número válido")
     .transform(Number)
-    .refine((num) => num > 0, "ID deve ser positivo"),
+    .refine((num: number) => num > 0, "ID deve ser positivo"),
 });
 
 // Tipos TypeScript derivados dos schemas

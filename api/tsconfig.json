@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es2022", // Versão do JavaScript de saída (ES2022 para top-level await)
-    "module": "esnext", // Sistema de módulos (esnext para top-level await)
-    "rootDir": "./src", // Onde nosso código .ts estará
-    "outDir": "./dist", // Onde o JavaScript compilado será salvo
-    "esModuleInterop": true, // Permite compatibilidade entre módulos CommonJS e ES
+    "target": "es2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true, // Habilita todas as checagens de tipo estritas
+    "strict": true,
     "skipLibCheck": true
   }
 }
