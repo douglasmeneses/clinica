@@ -15,7 +15,7 @@ export const getApiUrl = (): string => {
   }
 
   // Em desenvolvimento, usar localhost
-  return "http://localhost:3000";
+  return "http://localhost:3333";
 };
 
 export const API_BASE_URL = getApiUrl();
@@ -34,12 +34,3 @@ export const API_ENDPOINTS = {
   // Consultas
   CONSULTAS: `${API_BASE_URL}/consultas`,
 };
-
-// Timeout padrão para requisições (em ms)
-export const API_TIMEOUT = import.meta.env.VITE_API_TIMEOUT
-  ? Number(import.meta.env.VITE_API_TIMEOUT)
-  : 30000;
-
-// Ambiente
-export const IS_PRODUCTION = import.meta.env.PROD;
-export const IS_DEVELOPMENT = import.meta.env.DEV;

@@ -112,8 +112,6 @@ SWAGGER_SCHEMES="https"
 
 ```bash
 VITE_API_URL=https://sua-api.onrender.com
-VITE_API_TIMEOUT=10000
-VITE_ENV=production
 ```
 
 **Arquivo:** `frontend/src/services/consultaService.ts` (e outros services)
@@ -178,9 +176,31 @@ postgresql://admin:SENHA@dpg-xxxxx.onrender.com:5432/clinica
    | **Start Command** | `cd api && npm start`                                               |
    | **Plan**          | Free                                                                |
 
-4. Clique em **"Advanced"** → **"Add Environment Variable"**
+4. Clique em **"Advanced"** para adicionar Pre-Deploy Command e Variáveis
 
-### 2.2 Adicionar Variáveis de Ambiente
+### 2.2 Configurar Start Command com Migrations + Seed
+
+⚠️ **Nota:** Pre-Deploy Command é pago. Usaremos Start Command em seu lugar!
+
+Substitua o **Start Command** para:
+
+```bash
+cd api && npx prisma migrate deploy && npx tsx src/scripts/seedAll.ts && node dist/index.js
+```
+
+**O que isso faz:**
+
+1. `npx prisma migrate deploy` - Aplica migrations ao banco
+2. `npx tsx src/scripts/seedAll.ts` - Popula o banco com dados iniciais
+3. `node dist/index.js` - Inicia a aplicação
+
+**Isso garante que:**
+
+- ✅ Banco é inicializado automaticamente
+- ✅ Dados são inseridos antes da aplicação iniciar
+- ✅ Funciona no Free Plan! 🎉
+
+### 2.3 Adicionar Variáveis de Ambiente
 
 Adicione cada uma individualmente:
 
@@ -193,55 +213,63 @@ Adicione cada uma individualmente:
 
 **Clique "Create Web Service"**
 
-### 2.3 Aguardar Deploy
+**Ordem de execução no Render:**
+
+```
+1. Build Command
+   └─ npm install
+   └─ npm run prisma:generate
+   └─ npm run build
+   └─ (aplicação fica pronta em dist/)
+
+2. Start Command (EXECUTA TUDO!)
+   └─ npx prisma migrate deploy
+   └─ npx tsx src/scripts/seedAll.ts
+   └─ node dist/index.js (servidor inicia)
+```
+
+### 2.4 Aguardar Deploy
 
 - Render começará o build automático
-- **Aguarde 5-10 minutos** para completar
-- Você verá na tela quando estiver "Live"
+- **Durante o deploy:**
+  - Build Command executa (npm install, prisma generate, tsc)
+  - Start Command executa (migrations, seed, servidor inicia) ⚡
+- **Aguarde 10-15 minutos** para completar
+- Você verá na tela quando estiver **"Live"**
 
-### 2.4 Executar Migrations e Seed
+✅ **Quando estiver "Live", o banco já estará populado com 48 registros!**
 
-Após deploy bem-sucedido:
-
-1. Vá ao **Dashboard** da API
-2. Clique em **"Shell"** (no menu superior)
-3. Execute os comandos:
-
-```bash
-# Executar migrations
-npx prisma migrate deploy
-
-# Semear dados iniciais
-npx prisma db seed
-
-# Ou
-npx tsx src/scripts/seedAll.ts
-```
-
-**Resultado esperado:**
+**Primeiras linhas dos logs devem mostrar:**
 
 ```
-🌱 Iniciando seed de dados...
-👨‍⚕️  Criando médicos...
+🚀 Starting application...
+🗄️ Running migrations...
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": PostgreSQL database "clinica"
+
+✓ No pending migrations to apply
+
+🌱 Seeding database...
 ✅ 20 médicos criados
-👥 Criando pacientes...
 ✅ 10 pacientes criados
-🔑 Criando secretários...
 ✅ 3 secretários criados
-📅 Criando consultas...
 ✅ 15 consultas criadas
+
+✅ Starting server...
+🚀 Server is running on http://localhost:10000
+📡 CORS enabled for: https://clinica-frontend.onrender.com
 ```
 
 ### 2.5 Verificar API
 
-Após seed, teste:
+Após deployment completo e estar "Live":
 
 ```bash
 # No terminal ou navegador
 curl https://clinica-api.onrender.com/api/medicos
 ```
 
-Deve retornar JSON com médicos! ✅
+Deve retornar JSON com 20 médicos! ✅
 
 ---
 
@@ -265,11 +293,9 @@ Deve retornar JSON com médicos! ✅
 
 Clique em **"Advanced"** → **"Add Environment Variable"**:
 
-| Chave              | Valor                              |
-| ------------------ | ---------------------------------- |
-| `VITE_API_URL`     | `https://clinica-api.onrender.com` |
-| `VITE_API_TIMEOUT` | `10000`                            |
-| `VITE_ENV`         | `production`                       |
+| Chave          | Valor                              |
+| -------------- | ---------------------------------- |
+| `VITE_API_URL` | `https://clinica-api.onrender.com` |
 
 **Clique "Create Static Site"**
 
