@@ -26,13 +26,13 @@ export const API_ENDPOINTS = {
   LOGIN: `${API_BASE_URL}/login`,
 
   // Médicos
-  MEDICOS: `${API_BASE_URL}/api/medicos`,
+  MEDICOS: `${API_BASE_URL}/medicos`,
 
   // Pacientes
-  PACIENTES: `${API_BASE_URL}/api/pacientes`,
+  PACIENTES: `${API_BASE_URL}/pacientes`,
 
   // Consultas
-  CONSULTAS: `${API_BASE_URL}/api/consultas`,
+  CONSULTAS: `${API_BASE_URL}/consultas`,
 };
 
 // Timeout padrão para requisições (em ms)
